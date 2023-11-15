@@ -1,0 +1,21 @@
+package com.example.userservice.models;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.ManyToMany;
+import lombok.*;
+
+import java.util.HashSet;
+import java.util.Set;
+
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Entity
+@ToString
+public class User extends BaseModel{
+    private String email;
+    private String password;
+    @ManyToMany
+    private Set<Role> roles = new HashSet<>();
+}
